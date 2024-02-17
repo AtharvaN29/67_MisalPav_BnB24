@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import { Button } from './components/ui/button'
 import './App.css'
+import Analytics from './Analytics'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Button>
-        Submit
-      </Button>
+      <Analytics>
+        
+      </Analytics>
     </>
   )
 }
