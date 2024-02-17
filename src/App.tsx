@@ -1,3 +1,9 @@
+import { useState } from 'react'
+import './App.css'
+import Analytics from './Analytics'
+
+function App() {
+
 import './App.css'
 import CompanyForm from './Mycomponents/Company_form/CompanyForm'
 import NewCompany from './Mycomponents/Company_form/NewCompany'
@@ -19,6 +25,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
+    <>
+      <Analytics>
+        
+      </Analytics>
+    </>
     
       
       
