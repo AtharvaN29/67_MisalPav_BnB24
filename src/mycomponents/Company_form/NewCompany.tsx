@@ -45,6 +45,10 @@ export default function CompanyForm() {
       number: number,
       password: password,
     }
+    // we will check if user has auth or not 
+    // if(auth){
+      navigate('/landingpage')
+    // }
   }
 
   const navigate = useNavigate()
