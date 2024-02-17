@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function UserForm() {
   const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   const submit = () => {
     console.log('Sign in')
   }
@@ -35,7 +39,11 @@ export default function UserForm() {
                     User Name
                   </label>
                   <input
-                    type='email'
+                    onChange={(e) => {
+                      setUsername(e.target.value)
+                    }}
+                    value={username}
+                    type='text'
                     name='email'
                     id='email'
                     className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
@@ -50,6 +58,10 @@ export default function UserForm() {
                     Password
                   </label>
                   <input
+                    onChange={(e) => {
+                      setPassword(e.target.value)
+                    }}
+                    value={password}
                     type='password'
                     name='password'
                     id='password'
