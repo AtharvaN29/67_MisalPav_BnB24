@@ -11,6 +11,7 @@ import NewCompany from './Mycomponents/Company_form/NewCompany'
 import NewUser from './Mycomponents/User_form/NewUser'
 import UserForm from './Mycomponents/User_form/UserForm'
 import Display from './Mycomponents/display/Display'
+import { Identity } from './Mycomponents/Identity'
 function App() {
 
 
@@ -20,6 +21,7 @@ function App() {
       
    <>
     <Router>
+    {/* <Identity/> */}
     <Navbar />
         <Welcome/>
       <LayoutGridDemo/>
