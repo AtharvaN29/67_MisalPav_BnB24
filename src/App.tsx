@@ -1,22 +1,32 @@
+
 import React from 'react';
-import { useState } from 'react'
-import { Button } from './components/ui/button'
-import AddProduct from './AddProduct'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import './App.css'
+import CompanyForm from './mycomponents/Company_form/CompanyForm'
+import NewCompany from './mycomponents/Company_form/NewCompany'
+import NewUser from './mycomponents/User_form/NewUser'
+import UserForm from './mycomponents/User_form/UserForm'
+import Display from './mycomponents/display/Display'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import Table from './Table';
 function App() {
 
 
   return (
     <>
-    <div className='h-20'></div>
-    <div className='flex justify-end '><div className='w-1/2'><Table/></div></div>
-      
-     <AddProduct/>
-        
- 
-    </>
+    <Router>
+        <Routes>
+          <Route path='/companyform' element={<CompanyForm />} />
+          <Route path='/newcompany' element={<NewCompany />} />
+          <Route path='/userform' element={<UserForm />} />
+          <Route path='/newuser' element={<NewUser />} />
+          <Route path='/' element={<Display />} />
+        </Routes>
+      </Router>
+      </>
   )
 }
 
-export default App
+export default App;
