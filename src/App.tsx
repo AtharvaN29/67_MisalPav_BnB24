@@ -16,6 +16,8 @@ import { LayoutGridDemo } from './Mycomponents/Grid'
 import Welcome from './Mycomponents/Welcome'
 import Footer from './Mycomponents/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import UserProfile from './Mycomponents/UserProfile'
+// import BuyerProfile from './Mycomponents/BuyerProfile'
 
 
 
@@ -27,7 +29,8 @@ function App() {
       
    <>
     <Router>
-    {/* <Identity/> */}
+      
+    <Identity/>
     <Navbar />
         <Welcome/>
       <LayoutGridDemo/>
