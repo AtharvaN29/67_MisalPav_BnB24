@@ -1,24 +1,35 @@
+import { useState } from 'react'
 import './App.css'
-import CompanyForm from './mycomponents/Company_form/CompanyForm'
-import NewCompany from './mycomponents/Company_form/NewCompany'
-import NewUser from './mycomponents/User_form/NewUser'
-import UserForm from './mycomponents/User_form/UserForm'
-import Display from './mycomponents/display/Display'
+import Analytics from './Analytics'
+
+function App() {
+
+import './App.css'
+import CompanyForm from './Mycomponents/Company_form/CompanyForm'
+import NewCompany from './Mycomponents/Company_form/NewCompany'
+import NewUser from './Mycomponents/User_form/NewUser'
+import UserForm from './Mycomponents/User_form/UserForm'
+import Display from './Mycomponents/display/Display'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import Table from './Table';
-import PrivateComponent from './mycomponents/PrivateComponent';
-import Navbar from './mycomponents/Header'
-import { ThreeDCardDemo } from './mycomponents/Card'
-import { LayoutGridDemo } from './mycomponents/Grid'
-import Welcome from './mycomponents/Welcome'
-import Footer from './mycomponents/Footer'
+import PrivateComponent from './Mycomponents/PrivateComponent';
+import Navbar from './Mycomponents/Header'
+import { ThreeDCardDemo } from './Mycomponents/Card'
+import { LayoutGridDemo } from './Mycomponents/Grid'
+import Welcome from './Mycomponents/Welcome'
+import Footer from './Mycomponents/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
 
 function App() {
   return (
+    <>
+      <Analytics>
+        
+      </Analytics>
+    </>
     
       
       
@@ -28,6 +39,7 @@ function App() {
         <Welcome/>
       <LayoutGridDemo/>
       <ThreeDCardDemo/>
+      
       <Footer/>
         <Routes>
           <Route element={<PrivateComponent/>}/>     
