@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.identity-card {
+  border-radius: 50px;
+  width: 75vw;
+  height: 30vw;
+}
+
+.user-icon {
+  /* width: 100px;  */
+  height: 25vw;
+  border-radius: 50%;
+  /* margin-right: 4;  */
+}
+
