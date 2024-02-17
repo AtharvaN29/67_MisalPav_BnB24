@@ -18,6 +18,10 @@ export default function CompanyForm() {
   }
 
   function submit() {
+    // if(auth){
+    navigate('/landingpageCompany')
+
+    // }
     console.log('Form submitted')
   }
 
@@ -95,9 +99,10 @@ export default function CompanyForm() {
                 <button
                   type='submit'
                   className='w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
-                  onClick={submit}
                 >
-                  <Button className='w-[100%]'>Sign in</Button>
+                  <Button className='w-[100%]' onClick={submit}>
+                    Sign in
+                  </Button>
                 </button>
                 <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                   Don’t have an account yet?{' '}
