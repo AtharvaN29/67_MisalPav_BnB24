@@ -1,7 +1,8 @@
 import './App.css'
 import Analytics from './Analytics'
 import CompanyForm from './Mycomponents/Company_form/CompanyForm'
-
+import NewCompany from './Mycomponents/Company_form/NewCompany'
+import NewUser from './Mycomponents/User_form/NewUser'
 import UserForm from './Mycomponents/User_form/UserForm'
 import Display from './Mycomponents/display/Display'
 import { Identity } from './Mycomponents/Identity'
@@ -13,8 +14,6 @@ import { ThreeDCardDemo } from './Mycomponents/Card'
 import { LayoutGridDemo } from './Mycomponents/Grid'
 import Welcome from './Mycomponents/Welcome'
 import Footer from './Mycomponents/Footer'
-import NewCompany from './Mycomponents/Company_form/NewCompany'
-import NewUser from './Mycomponents/User_form/NewUser'
 import PrivateComponent from './Mycomponents/PrivateComponent'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
