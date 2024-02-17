@@ -15,7 +15,6 @@ function App() {
   return (
     <>
       <Router>
-        <NewProduct />
         <Routes>
           {/* <Route element={} /> */}
           <Route element={<PrivateComponent />} />
@@ -24,6 +23,7 @@ function App() {
           <Route path='/userform' element={<UserForm />} />
           <Route path='/newuser' element={<NewUser />} />
           <Route path='/landingpageCompany' element={<LandingPage />} />
+          <Route path='/newProduct' element={<NewProduct />} />
           <Route path='/' element={<Display />} />
         </Routes>
       </Router>
