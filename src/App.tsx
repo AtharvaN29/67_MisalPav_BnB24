@@ -11,13 +11,13 @@ import Display from './mycomponents/display/Display'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import Table from './Table';
+import PrivateComponent from './mycomponents/PrivateComponent';
 function App() {
-
-
   return (
     <>
     <Router>
         <Routes>
+          <Route element={<PrivateComponent/>}/>     
           <Route path='/companyform' element={<CompanyForm />} />
           <Route path='/newcompany' element={<NewCompany />} />
           <Route path='/userform' element={<UserForm />} />
