@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { SetStateAction, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 export default function CompanyForm() {
@@ -5,7 +6,7 @@ export default function CompanyForm() {
   const [password, setPassword] = useState('')
 
   const createNewAccountCompany = () => {
-   navigate("/newCompany")
+    navigate('/newCompany')
   }
 
   const addCompanyName = (e: { target: { value: SetStateAction<string> } }) => {
@@ -17,7 +18,7 @@ export default function CompanyForm() {
   }
 
   function submit() {
-    console.log("Form submitted")
+    console.log('Form submitted')
   }
 
   const navigate = useNavigate()
@@ -47,7 +48,7 @@ export default function CompanyForm() {
                     Company Name
                   </label>
                   <input
-                  onChange={addCompanyName}
+                    onChange={addCompanyName}
                     type='email'
                     name='email'
                     id='email'
@@ -96,12 +97,12 @@ export default function CompanyForm() {
                   className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
                   onClick={submit}
                 >
-                  Sign in
+                  <Button className='w-[100%]'>Sign in</Button>
                 </button>
                 <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                   Don’t have an account yet?{' '}
                   <a
-                    className='font-medium text-primary-600 hover:underline dark:text-primary-500'
+                    className='font-medium text-primary-600 hover:underline dark:text-primary-500 cursor-pointer'
                     onClick={createNewAccountCompany}
                   >
                     Create New
