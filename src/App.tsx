@@ -20,12 +20,14 @@ function App() {
       
    <>
     <Router>
-        <Routes>
-        <Navbar />
+    <Navbar />
         <Welcome/>
       <LayoutGridDemo/>
       <ThreeDCardDemo/>
       <Footer/>
+        <Routes>
+        
+   
           <Route path='/companyform' element={<CompanyForm />} />
           <Route path='/newcompany' element={<NewCompany />} />
           <Route path='/userform' element={<UserForm />} />
