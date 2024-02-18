@@ -5,6 +5,7 @@ import NewUser from './mycomponents/User_form/NewUser'
 import UserForm from './mycomponents/User_form/UserForm'
 import Display from './mycomponents/display/Display'
 import PrivateComponent from './mycomponents/PrivateComponent'
+import LandingPageUser from './mycomponents/LandingPage/LandingPageUser'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/userform' element={<UserForm />} />
           <Route path='/newuser' element={<NewUser />} />
           <Route path='/landingpageCompany' element={<LandingPage />} />
+          <Route path='/landingpageuser' element={<LandingPageUser />} />
           <Route path='/newProduct' element={<NewProduct />} />
           <Route path='/' element={<Display />} />
         </Routes>
