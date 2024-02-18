@@ -10,13 +10,15 @@ export default function Display() {
     navigate('/userform')
   }
   return (
-    <div>
-      <Button className='p-7 m-10' onClick={handleCompany}>
-        Continue as Company
-      </Button>
-      <Button className='p-7 m-10' onClick={handleUser}>
-        Continue User
-      </Button>
+    <div className='w-[100%] flex justify-center mt-44'>
+      <div className='flex flex-col w-[35%] border border-gray-400 rounded-md'>
+        <Button className='p-10 m-5 text-3xl' onClick={handleCompany}>
+          Continue as Company
+        </Button>
+        <Button className='p-10 m-5 text-3xl' onClick={handleUser}>
+          Continue User
+        </Button>
+      </div>
     </div>
   )
 }
