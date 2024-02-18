@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function CompanyForm() {
   const [companyName, setCompanyName] = useState('')
   const [password, setPassword] = useState('')
+  const [agree, setAgree] = useState(false)
 
   const createNewAccountCompany = () => {
     navigate('/newCompany')
@@ -18,11 +19,18 @@ export default function CompanyForm() {
   }
 
   function submit() {
-    // if(auth){
-    navigate('/landingpageCompany')
-
-    // }
-    console.log('Form submitted')
+    if (companyName === '') {
+      alert('Company name cannot be null!')
+    } else if (password === '') {
+      alert('Password cannot be null')
+    } else if (agree === false) {
+      alert('Agree to the terms and condition!')
+    } else {
+      // if(auth){
+      navigate('/landingpageCompany')
+      // }
+      console.log('Form submitted')
+    }
   }
 
   const navigate = useNavigate()
@@ -84,6 +92,9 @@ export default function CompanyForm() {
                         aria-describedby='remember'
                         type='checkbox'
                         className='w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800'
+                        onClick={() => {
+                          agree ? setAgree(false) : setAgree(true)
+                        }}
                       />
                     </div>
                     <div className='ml-3 text-sm'>

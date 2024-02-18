@@ -10,6 +10,7 @@ export default function UserForm() {
   const submit=async()=> {
  
     console.warn("running");
+    
     let result= await fetch('http://localhost:5000/login',{
      method:'post',
       body:JSON.stringify({username,password}),
@@ -22,7 +23,7 @@ export default function UserForm() {
 
   if(result){
       localStorage.setItem('user',JSON.stringify(result));
-      navigate('/');
+      navigate('/landingpageuser')
   }
   else{
       alert("Invalid email and pass")
@@ -112,9 +113,10 @@ export default function UserForm() {
                 <button
                   type='submit'
                   className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
-                  onClick={submit}
                 >
-                  <Button className='w-[100%]'>Sign in</Button>
+                  <Button className='w-[100%]' onClick={submit}>
+                    Sign in
+                  </Button>
                 </button>
                 <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                   Don’t have an account yet?{' '}
