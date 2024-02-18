@@ -8,12 +8,11 @@ import Welcome from '../Welcome'
 export default function LandingPage() {
   return (
     <div>
-      <Navbar usertype={false} />
+      <Navbar usertype={true} />
       <Welcome />
       <LayoutGridDemo />
       <div className='text-3xl text-center'>Your Products</div>
       <ThreeDCardDemo />
-      <Analytics />
       <Footer />
     </div>
   )
