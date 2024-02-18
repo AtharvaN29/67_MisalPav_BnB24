@@ -24,8 +24,8 @@ export default function UserForm() {
             href='#'
             className='flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white'
           >
-            <img className='w-8 h-8 mr-2' src='' alt='' />
-            Apna logo
+            <img className='w-14 h-14 mr-2' src='https://th.bing.com/th/id/OIP.RglnjhC2ui4mJAVJAFIYRwHaF7?w=205&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7' alt='' />
+            Apna Bazaar
           </a>
           <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
             <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>

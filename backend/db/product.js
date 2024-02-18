@@ -7,6 +7,7 @@ const ProductSchema=mongoose.Schema({
        raw_material:String,
        manufacturing_practices:String,
        usp:String, 
+       price:String,
        image:{
         type:String
        }
