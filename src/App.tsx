@@ -1,19 +1,19 @@
 import './App.css'
 
-import CompanyForm from './mycomponents/Company_form/CompanyForm'
-import NewCompany from './mycomponents/Company_form/NewCompany'
-import NewUser from './mycomponents/User_form/NewUser'
-import UserForm from './mycomponents/User_form/UserForm'
-import Display from './mycomponents/display/Display'
-import PrivateComponent from './mycomponents/PrivateComponent'
-import LandingPageUser from './mycomponents/LandingPage/LandingPageUser'
+import CompanyForm from './Mycomponents/Company_form/CompanyForm'
+import NewCompany from './Mycomponents/Company_form/NewCompany'
+import NewUser from './Mycomponents/User_form/NewUser'
+import UserForm from './Mycomponents/User_form/UserForm'
+import Display from './Mycomponents/display/Display'
+import PrivateComponent from './Mycomponents/PrivateComponent'
+import LandingPageUser from './Mycomponents/LandingPage/LandingPageUser'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // import UserProfile from './mycomponents/UserProfile'
 // import BuyerProfile from './mycomponents/BuyerProfile'
 
-import LandingPage from './mycomponents/LandingPage/LandingPage'
-import NewProduct from './mycomponents/NewProduct/NewProduct'
+import LandingPage from './Mycomponents/LandingPage/LandingPage'
+import NewProduct from './Mycomponents/NewProduct/NewProduct'
 
 function App() {
   return (
