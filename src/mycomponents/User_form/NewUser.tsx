@@ -12,15 +12,34 @@ export default function NewUser() {
     navigate('/userform')
   }
 
-  function submit() {
-    if (password !== conPassword) {
-      alert('Passwords are not same!')
-    }
+  const submit=async()=> {
     const userObject = {
       name: username,
       password: password,
     }
+    console.warn(userObject);
+    let result= await fetch('http://localhost:5000/login',{
+      method:'post',
+      body:JSON.stringify({username,password}),
+      headers:{
+          'Content-Type':'application/json'
+      }
+  });
+  result=await result.json();
+  console.warn(result);
+  if(result.username){
+      localStorage.setItem('user',JSON.stringify(result));
+      navigate('/');
   }
+  else{
+      alert("Invalid email and pass")
+  }
+
+
+
+   
+  }
+ 
 
   return (
     <div>

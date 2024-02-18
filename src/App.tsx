@@ -24,23 +24,17 @@ import LandingPage from './Mycomponents/LandingPage/LandingPage'
 import NewProduct from './Mycomponents/NewProduct/NewProduct'
 
 function App() {
-  return (
-    
-   
-      
-      
+  return (  
    
     <Router>
       
-    <Identity/>
+    {/* <Identity/> */}
     <Navbar />
-        <Welcome/>
+        {/* <Welcome/>
       <LayoutGridDemo/>
-      <ThreeDCardDemo/>
+      // 
       
-      <Footer/>
-    
-     
+      <Footer/> */}
         <Routes>
           {/* <Route element={} /> */}
           <Route element={<PrivateComponent />} />
@@ -52,6 +46,7 @@ function App() {
           <Route path='/newProduct' element={<NewProduct />} />
           <Route path='/' element={<Display />} />
         </Routes>
+        <ThreeDCardDemo/>
       </Router>
   
   )

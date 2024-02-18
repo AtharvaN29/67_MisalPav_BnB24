@@ -5,6 +5,7 @@ const cors = require('cors')
 app.use(express.json())
 
 require('./db/config')
+const Cart=require('./db/cart')
 const User = require('./db/users')
 const Producer = require('./db/producers')
 const Product = require('./db/product')
@@ -58,19 +59,32 @@ app.post('/sendproduct', async (req, resp) => {
   resp.send(result)
 })
 
-//aayush
+//to login
+app.post('/login',async (req,resp)=>{
+    if(req.body.password && req.body.username){
+        let user=await User.findOne(req.body).select('-password');
+        if(user){
+            resp.send(user);
+        }
+        else{
+            resp.send({result:'N user found'})
+        }
+    }
+    else{
+        resp.send({result:'N user founded'}); 
+    }
+    
+});
 
-// app.post('/addProduct', fetchuser, async (req, res) => {
+app.get('/getcart', async (req, resp) => {
+    let result = await Cart.find()
+    resp.send(result)
+  })
 
-//     const { name, price, category, company } = req.body;
-//     let userid = req.user.id;
-//     const image = req.body.image.toString();
-//     try {
-//         Products.create({ user: userid, name: name, price: price, category: category, company: company, image: image });
-//         res.status(200).send({ Status: "ok" });
-//     } catch (error) {
-//         console.error(error.message);
-//         res.status(500).send("Internal Server error");
-//     }
-// });
+
+  app.post('/cartpost',async (req,resp)=>{
+    let cart=await new Cart(req.body);
+    let result=await cart.save();
+    resp.send(result);
+  })
 app.listen(5000)
