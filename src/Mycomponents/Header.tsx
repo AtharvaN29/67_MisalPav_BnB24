@@ -20,14 +20,14 @@ export default function Navbar(props) {
           <a className='btn btn-ghost text-lg'>Emart</a>{' '}
           {/* Adjusted the font size */}
           <div className='flex-1 mx-2'>
-            <a
+            {!Usertype && <a
               className='btn btn-ghost text-lg'
               onClick={() => {
                 navigate('/newProduct')
               }}
             >
               Add Product
-            </a>{' '}
+            </a>}{' '}
             {/* Adjusted the font size */}
           </div>
         </div>
