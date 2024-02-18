@@ -4,10 +4,10 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { CardBody, CardContainer, CardItem } from '@/components/3d-card'
 
-export function ThreeDCardDemo() {
+export function ThreeDCardDemo(){
   useEffect(() => {
     getData()
-  }, [])
+  }, []);
   const [products, setProducts] = useState([])
   const getData = async () => {
     let result = await fetch(`http://localhost:5000/getproduct`) //just because we are fething we dont need to write body etc
@@ -68,5 +68,6 @@ export function ThreeDCardDemo() {
         </CardContainer>
       ))}
     </div>
-  )
+    )
 }
+ 
