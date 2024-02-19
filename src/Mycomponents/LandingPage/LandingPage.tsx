@@ -4,7 +4,6 @@ import Footer from '../Footer'
 import { LayoutGridDemo } from '../Grid'
 import Navbar from '../Header'
 import Welcome from '../Welcome'
-
 export default function LandingPage() {
   return (
     <div>

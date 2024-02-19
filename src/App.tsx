@@ -7,6 +7,7 @@ import UserForm from './Mycomponents/User_form/UserForm'
 import Display from './Mycomponents/display/Display'
 import PrivateComponent from './Mycomponents/PrivateComponent'
 import LandingPageUser from './Mycomponents/LandingPage/LandingPageUser'
+import Cart from './Mycomponents/Cart'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // import UserProfile from './Mycomponents/UserProfile'
@@ -30,7 +31,11 @@ function App() {
         <Route path='/landingpageuser' element={<LandingPageUser />} />
         <Route path='/newProduct' element={<NewProduct />} />
         <Route path='/' element={<Display />} />
+        <Route path='/cart' element={<Cart />} />
+
+
       </Routes>
+      
     </Router>
   )
 }

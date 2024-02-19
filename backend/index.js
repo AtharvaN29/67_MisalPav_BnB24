@@ -18,6 +18,7 @@ app.get('/getuser', async (req, resp) => {
   resp.send(result)
 })
 
+
 //to post data to user database
 app.post('/senduser', async (req, resp) => {
   let user = new User(req.body)
@@ -73,18 +74,47 @@ app.post('/login',async (req,resp)=>{
     else{
         
     }
-    
 });
-
-app.get('/getcart', async (req, resp) => {
-    let result = await Cart.find()
-    resp.send(result)
+//to get item from cart for particular user
+app.get('/getcart/:userId', async (req, resp) => {
+    let result = await Cart.find({userId:req.params.userId})
+    if(result){
+      resp.send(result)
+    }
+    else{
+      resp.send({result:"NO item"});
+    }
   })
 
-
+//to add data in cart
   app.post('/cartpost',async (req,resp)=>{
-    let cart=await new Cart(req.body);
-    let result=await cart.save();
-    resp.send(result);
+    let result=await Cart.find({userId:req.body.userId, productId:req.body.productId});
+    if(result.length===0){
+      let cart=await new Cart(req.body);
+    let result1=await cart.save();
+    }
+    else{
+      let result1=await Cart.updateOne(
+        {userId:req.body.userId, productId:req.body.productId},
+        {
+          $inc: {count:1}
+        }
+        );
+    }
+    resp.send(result);  
   })
+
+  //delete item from cart
+app.delete('/deletecart',async (req,resp)=>{
+  
+  let result=await Cart.deleteOne({userId:req.body.userId}&&{productId:req.body.productId});
+  if(result){
+    resp.send('deleted');
+  }
+  else{
+    resp.send('empty');
+  }
+})
+
+
 app.listen(5000)
