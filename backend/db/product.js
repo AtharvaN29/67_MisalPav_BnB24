@@ -8,8 +8,6 @@ const ProductSchema=mongoose.Schema({
        manufacturing_practices:String,
        usp:String, 
        price:String,
-       image:{
-        type:String
-       }
+       img:String
 });
 module.exports = mongoose.model('product',ProductSchema);

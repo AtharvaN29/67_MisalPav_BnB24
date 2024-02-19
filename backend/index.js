@@ -5,6 +5,7 @@ const cors = require('cors')
 app.use(express.json())
 
 require('./db/config')
+const Cart=require('./db/cart')
 const User = require('./db/users')
 const Producer = require('./db/producers')
 const Product = require('./db/product')
@@ -16,6 +17,7 @@ app.get('/getuser', async (req, resp) => {
   let result = await User.find()
   resp.send(result)
 })
+
 
 //to post data to user database
 app.post('/senduser', async (req, resp) => {
@@ -58,19 +60,61 @@ app.post('/sendproduct', async (req, resp) => {
   resp.send(result)
 })
 
-//aayush
+//to login
+app.post('/login',async (req,resp)=>{
+    if(req.body.password && req.body.username){
+        let user=await User.findOne(req.body).select('-password');
+        if(user){
+            resp.send(user);
+        }
+        else{
+            resp.send({result:'N user found'})
+        }
+    }
+    else{
+        
+    }
+});
+//to get item from cart for particular user
+app.get('/getcart/:userId', async (req, resp) => {
+    let result = await Cart.find({userId:req.params.userId})
+    if(result){
+      resp.send(result)
+    }
+    else{
+      resp.send({result:"NO item"});
+    }
+  })
 
-// app.post('/addProduct', fetchuser, async (req, res) => {
+//to add data in cart
+  app.post('/cartpost',async (req,resp)=>{
+    let result=await Cart.find({userId:req.body.userId, productId:req.body.productId});
+    if(result.length===0){
+      let cart=await new Cart(req.body);
+    let result1=await cart.save();
+    }
+    else{
+      let result1=await Cart.updateOne(
+        {userId:req.body.userId, productId:req.body.productId},
+        {
+          $inc: {count:1}
+        }
+        );
+    }
+    resp.send(result);  
+  })
 
-//     const { name, price, category, company } = req.body;
-//     let userid = req.user.id;
-//     const image = req.body.image.toString();
-//     try {
-//         Products.create({ user: userid, name: name, price: price, category: category, company: company, image: image });
-//         res.status(200).send({ Status: "ok" });
-//     } catch (error) {
-//         console.error(error.message);
-//         res.status(500).send("Internal Server error");
-//     }
-// });
+  //delete item from cart
+app.delete('/deletecart',async (req,resp)=>{
+  
+  let result=await Cart.deleteOne({userId:req.body.userId}&&{productId:req.body.productId});
+  if(result){
+    resp.send('deleted');
+  }
+  else{
+    resp.send('empty');
+  }
+})
+
+
 app.listen(5000)

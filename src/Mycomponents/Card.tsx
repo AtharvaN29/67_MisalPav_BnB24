@@ -7,6 +7,8 @@ import './Card.css'
 import InfoCard from './InfoCard'
 
 export function ThreeDCardDemo(){
+
+  const auth = localStorage.getItem('user');
   useEffect(() => {
     getData()
   }, []);
@@ -17,6 +19,20 @@ export function ThreeDCardDemo(){
     setProducts(result)
     console.warn(result)
   }
+  let userId=JSON.parse(auth)._id;
+
+  //to put data in add cart 
+const addtocart=async (productId,name,description,price,img)=>{
+  let count=1;
+  console.warn(productId,userId,name,description,price,img);
+  let result=await fetch('http://localhost:5000/cartpost',{
+    method:'Post',
+    body:JSON.stringify({userId,productId,count,name,description,price,img}),
+    headers:{
+      'Content-Type':'application/json'
+    }
+  })
+}
 
   const [toggleInfo, setToggleInfo] = useState(false)
 
@@ -24,7 +40,7 @@ export function ThreeDCardDemo(){
     <div className='flex w-[100%] flex-wrap justify-center'>
       {products.map((item, index) => (
         <CardContainer className='inter-var'>
-          <CardBody className='bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border m-7 mb-0 card-item'>
+          <CardBody className='w-20 bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border m-7 mb-0 card-item'>
             <div className='flex justify-between'>
               <div>
                 <CardItem
@@ -74,14 +90,15 @@ export function ThreeDCardDemo(){
               <CardItem
                 translateZ={20}
                 as='button'
-                className='px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold text-2xl'
+                className='px-4 py-2  m-0 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold text-2xl'
               >
-                <img
-                  src='https://icons8.com/icon/9671/shopping-cart'
-                  alt=''
-                  className='text-white'
-                />
                 {item.price}
+              </CardItem>
+              <CardItem
+                translateZ={20}
+                as='button'
+                className='px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold text-2xl'
+              ><button onClick={()=>(addtocart(item._id,item.name,item.description,item.price,item.img))}>Add to cart</button>
               </CardItem>
             </div>
           </CardBody>

@@ -13,6 +13,7 @@ export default function LandingPage() {
       <LayoutGridDemo />
       <div className='text-3xl text-center'>Your Products</div>
       <ThreeDCardDemo />
+
       <Footer />
     </div>
   )

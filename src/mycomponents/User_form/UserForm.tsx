@@ -7,10 +7,29 @@ export default function UserForm() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const submit = () => {
-    console.log('Sign in')
-    navigate('/landingpageuser')
+  const submit=async()=> {
+ 
+    console.warn("running");
+    
+    let result= await fetch('http://localhost:5000/login',{
+     method:'post',
+      body:JSON.stringify({username,password}),
+      headers:{
+          'Content-Type':'application/json'
+      }
+  });
+  result=await result.json();
+  console.warn(result);
+
+  if(result){
+      localStorage.setItem('user',JSON.stringify(result));
+      navigate('/landingpageuser')
   }
+  else{
+      alert("Invalid email and pass")
+  }
+  }
+ 
 
   const createNewAccountUser = () => {
     navigate('/newuser')
@@ -32,7 +51,7 @@ export default function UserForm() {
               <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
                 Sign in to your account
               </h1>
-              <form className='space-y-4 md:space-y-6' action='#'>
+              <div className='space-y-4 md:space-y-6'>
                 <div>
                   <label
                     htmlFor='email'
@@ -108,7 +127,7 @@ export default function UserForm() {
                     Create New
                   </a>
                 </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
